@@ -1,5 +1,5 @@
 import React from "react"
-import { View, ScrollView } from "react-native"
+import { View } from "react-native"
 import { TrendingUp, Moon, Lightbulb } from "lucide-react-native"
 
 import { ThemedText } from "@/components/ThemedText"

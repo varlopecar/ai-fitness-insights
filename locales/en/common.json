@@ -1,0 +1,9 @@
+{
+  "button": {
+    "submit": "Submit",
+    "cancel": "Cancel"
+  },
+  "label": {
+    "currentLanguage": "Current language is {{currentLanguage}}"
+  }
+}

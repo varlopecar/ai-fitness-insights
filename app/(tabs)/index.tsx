@@ -21,6 +21,7 @@ export default function HomeScreen() {
             <ThemedText>Steps</ThemedText>
             <ThemedText className="font-bold">8,234</ThemedText>
           </View>
+          
           <View className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full mb-2">
             <View className="h-2 bg-blue-500 rounded-full" style={{ width: "82%" }} />
           </View>

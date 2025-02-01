@@ -5,6 +5,7 @@ import { Activity, Bell, Target } from "lucide-react-native"
 import { ThemedText } from "@/components/ThemedText"
 import { ThemedView } from "@/components/ThemedView"
 import ParallaxScrollView from "@/components/ParallaxScrollView"
+import { LanguageSwitcher } from "@/components/LanguageSwitcher"
 
 export default function SettingsScreen() {
     const [isHealthEnabled, setIsHealthEnabled] = React.useState(true)
@@ -54,18 +55,7 @@ export default function SettingsScreen() {
                     </ThemedText>
                 </ThemedView>
 
-                <ThemedView className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-4">
-                    <View className="flex-row items-center mb-4">
-                        <Target size={24} color="#5856D6" />
-                        <ThemedText className="text-lg font-semibold ml-2">Fitness Goals</ThemedText>
-                    </View>
-                    <TouchableOpacity className="bg-purple-500 py-2 px-4 rounded-full">
-                        <ThemedText className="text-white text-center">Adjust Goals</ThemedText>
-                    </TouchableOpacity>
-                    <ThemedText className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                        Set and manage your daily and weekly fitness targets
-                    </ThemedText>
-                </ThemedView>
+                <LanguageSwitcher />
             </ThemedView>
         </ParallaxScrollView>
     )
