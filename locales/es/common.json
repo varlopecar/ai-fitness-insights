@@ -2,5 +2,8 @@
   "button": {
     "cancel": "Cancelar",
     "submit": "Entregar"
+  },
+  "label": {
+    "currentLanguage": "El lenguaje actual es {{currentLanguage}}"
   }
 }

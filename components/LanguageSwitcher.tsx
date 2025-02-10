@@ -1,19 +1,21 @@
-import { useLocale } from "@/i18n/TranslationContext";
-import { ThemedView } from "./ThemedView";
-import { Text, TouchableOpacity } from "react-native";
+import { useLocale } from "@/i18n/TranslationContext"
+import { ThemedView } from "./ThemedView"
+import { TouchableOpacity } from "react-native"
+import { ThemedText } from "./ThemedText"
 
 export function LanguageSwitcher() {
-    const { tCommon, currentLanguage, changeLanguage, getLanguageName, dir } = useLocale();
+    const { tCommon, currentLanguage, changeLanguage, getLanguageName, dir } = useLocale()
 
     return (
         <ThemedView style={{ direction: dir }}>
             <TouchableOpacity onPress={() => changeLanguage("en")}>
-                <Text>{getLanguageName("en")}</Text>
+                <ThemedText>{getLanguageName("en")}</ThemedText>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => changeLanguage("es")}>
-                <Text>{getLanguageName("es")}</Text>
+                <ThemedText>{getLanguageName("es")}</ThemedText>
             </TouchableOpacity>
-            <Text>{tCommon("label.currentLanguage", { currentLanguage: getLanguageName(currentLanguage) })}</Text>
+            <ThemedText>{tCommon("label.currentLanguage", { currentLanguage: getLanguageName(currentLanguage) })}</ThemedText>
         </ThemedView>
-    );
+    )
 }
+

@@ -27,7 +27,7 @@ export const TranslationProvider = ({ children }: { children: ReactNode }) => {
 
   const changeLanguage = async (lng: string) => {
     setCurrentLanguage(lng)
-    i18next.changeLanguage(lng)
+    await i18next.changeLanguage(lng)
     await AsyncStorageService.setItem(USER_LANGUAGE, lng)
   }
 
@@ -40,7 +40,7 @@ export const TranslationProvider = ({ children }: { children: ReactNode }) => {
       const userLanguage = await AsyncStorageService.getItem(USER_LANGUAGE)
       if (userLanguage) {
         setCurrentLanguage(userLanguage)
-        i18next.changeLanguage(userLanguage)
+        await i18next.changeLanguage(userLanguage)
       }
     }
 
@@ -63,7 +63,11 @@ export const TranslationProvider = ({ children }: { children: ReactNode }) => {
 
 export const useLocale = () => {
   const { currentLanguage, changeLanguage, dir, getLanguageName } = useContext(TranslationContext)
-  const { t: tCommon } = useTranslation("common")
+  const { t: tCommon, i18n } = useTranslation()
+
+  useEffect(() => {
+    i18n.changeLanguage(currentLanguage)
+  }, [currentLanguage, i18n])
 
   return {
     currentLanguage,
@@ -74,17 +78,6 @@ export const useLocale = () => {
   }
 }
 
-const getTranslation = (key: string, params?: ITranslationParams) => {
-  const { currentLanguage } = useContext(TranslationContext)
-
-  if (!i18next.isInitialized) {
-    return "Translation not initialized"
-  }
-  if (!i18next.exists(key)) {
-    return `Missing ${currentLanguage}.${key} translation`
-  }
+export const translate = (key: string, params?: Record<string, unknown>) => {
   return i18next.t(key, params)
 }
-
-export const translate = getTranslation
-
