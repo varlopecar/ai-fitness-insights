@@ -1,12 +1,14 @@
 import React from "react"
-import { View } from "react-native"
+import { View, Button } from "react-native"
 import { BarChart, LineChart } from "react-native-chart-kit"
 
 import { ThemedText } from "@/components/ThemedText"
 import { ThemedView } from "@/components/ThemedView"
 import ParallaxScrollView from "@/components/ParallaxScrollView"
+import { useRouter } from "expo-router"
 
 export default function HomeScreen() {
+  const router = useRouter()
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
@@ -21,6 +23,8 @@ export default function HomeScreen() {
             <ThemedText>Steps</ThemedText>
             <ThemedText className="font-bold">8,234</ThemedText>
           </View>
+
+          <Button title="Go to Auth" onPress={() => router.push("/auth")} />
           
           <View className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full mb-2">
             <View className="h-2 bg-blue-500 rounded-full" style={{ width: "82%" }} />
@@ -50,7 +54,8 @@ export default function HomeScreen() {
             }}
             width={300}
             height={200}
-            yAxisSuffix=" steps"
+            yAxisSuffix="steps"
+            yAxisLabel="steps"
             chartConfig={{
               backgroundColor: "#FFFFFF",
               backgroundGradientFrom: "#FFFFFF",

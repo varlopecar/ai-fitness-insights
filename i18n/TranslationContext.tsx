@@ -17,7 +17,7 @@ interface TranslationContextProps {
 
 export const TranslationContext = createContext<TranslationContextProps>({
   currentLanguage: "en",
-  changeLanguage: () => {},
+  changeLanguage: () => { },
   dir: "ltr",
   getLanguageName: () => "",
 })
